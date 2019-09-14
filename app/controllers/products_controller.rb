@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: %i(add remove)
+  before_action :authenticate_user!, only: %i(add_cart remove_cart)
   before_action :set_product, only: %i(show add_cart remove_cart)
 
   def index
