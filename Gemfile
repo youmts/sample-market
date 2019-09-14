@@ -19,6 +19,8 @@ gem 'bootsnap', require: false # Reduces boot times through caching; required in
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
