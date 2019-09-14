@@ -16,6 +16,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'bootstrap'
+gem 'devise' # for user/admin
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 
@@ -30,6 +31,7 @@ group :development do
   gem 'listen'
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen'
+  gem 'letter_opener'
 end
 
 group :test do
