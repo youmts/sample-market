@@ -30,4 +30,10 @@ group :development do
   gem 'spring-watcher-listen'
 end
 
+group :test do
+  gem 'capybara' # for system test
+  gem 'selenium-webdriver' # for use selenium driver
+  gem 'webdrivers' # for selenium_chrome_headless
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
