@@ -48,6 +48,7 @@ RSpec.describe 'admin/products', type: :system do
     visit admin_products_path
 
     expect {
+      # jsによるアラートは出ない
       click_link "削除"
     }.to change { Product.count }.by(-1)
 

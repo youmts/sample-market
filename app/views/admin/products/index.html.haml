@@ -16,7 +16,8 @@
           = product.price
         %td
           = link_to '変更', edit_admin_product_path(product)
-          = link_to '削除', [:admin, product], method: :delete
+          = link_to '削除', [:admin, product], method: :delete,
+            data: { confirm: "本当に削除しますか？" }
 
 %br
 
