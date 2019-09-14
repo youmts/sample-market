@@ -1,17 +1,26 @@
 !!!
-%html
+%html{:lang => "ja"}
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
+
     %title SakuraMarket
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %body.has-navbar-fixed-top
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .navbar-brand
+        さくらマーケット
+
     - if notice.presence
       .alert.alert-info
         = notice
     - if flash[:error].presence
       .alert.alert-danger
         = flash[:error]
-    = yield
+
+    .container
+      = yield

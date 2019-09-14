@@ -1,6 +1,6 @@
 %h1 商品一覧
 
-%table
+%table.table
   %thead
     %tr
       %th Name
@@ -15,10 +15,10 @@
         %td
           = product.price
         %td
-          = link_to '変更', edit_admin_product_path(product)
+          = link_to '変更', edit_admin_product_path(product), class: "btn btn-secondary"
           = link_to '削除', [:admin, product], method: :delete,
-            data: { confirm: "本当に削除しますか？" }
+            data: { confirm: "本当に削除しますか？" }, class: "btn btn-secondary"
 
 %br
 
-= link_to "商品を追加", new_admin_product_path
+= link_to "商品を追加", new_admin_product_path, class: "btn btn-secondary"

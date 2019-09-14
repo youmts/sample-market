@@ -14,6 +14,8 @@ gem 'carrierwave', '~> 1' # 画像保存用
 gem 'rmagick' # 画像編集
 gem 'haml-rails'
 gem 'simple_form'
+gem 'jquery-rails'
+gem 'bootstrap'
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 
