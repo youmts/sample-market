@@ -16,5 +16,6 @@
         = @product.price
         円
 
-      = button_to 'カートに入れる', add_cart_items_path, class: "btn btn-primary", |
-        params: { product_id: @product.id }, remote: true
+      - if current_user
+        = button_to 'カートに入れる', add_cart_items_path, class: "btn btn-primary", |
+          params: { product_id: @product.id }, remote: true

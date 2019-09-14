@@ -21,9 +21,9 @@
         %ul.navbar-nav
           %li.nav-item
             = link_to "お買い物", root_path, class: "nav-link"
-          %li.nav-item
-            = link_to "ショッピングカート", cart_index_path, class: "nav-link"
           - if current_user
+            %li.nav-item
+              = link_to "ショッピングカート", cart_index_path, class: "nav-link"
             %li.nav-item
               = link_to "ログアウト", destroy_user_session_url, class: "nav-link", method: :delete
             %li.nav-item
