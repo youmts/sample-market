@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "shop#index"
+  resources :shop, only: %i(show)
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',

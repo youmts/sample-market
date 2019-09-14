@@ -1,4 +1,12 @@
-- @products.each do |product|
-  %ul
-    %li
-      = product.name
+.row
+  - @products.each do |product|
+    .col-sm-4.p-2
+      .shadow-sm.rounded.bg-white
+        .row
+          - if product.image_url.presence
+            = link_to image_tag(product.image_url(:thumb)), shop_url(product), class: "mx-auto"
+          - else
+            %p イメージなし
+        .row
+          %p.mx-auto
+            = product.name

@@ -1,0 +1,19 @@
+.row
+  %h2.title= @product.name
+
+.row
+  .col-md-6
+    .shadow-sm.rounded.bg-white.p-2
+      - if @product.image_url.presence
+        = image_tag @product.image_url
+      - else
+        %p イメージはありません
+
+  .col-md-6
+    .shadow-sm.rounded.bg-white.p-2
+      %p= @product.description
+      %p
+        = @product.price
+        円
+
+      = link_to 'カートに入れる', '', class: "btn btn-primary"

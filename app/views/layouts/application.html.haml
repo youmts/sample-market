@@ -19,6 +19,8 @@
         %span.navbar-toggler-icon
       #navbarNav.collapse.navbar-collapse
         %ul.navbar-nav
+          %li.nav-item
+            = link_to "お買い物", root_path, class: "nav-link"
           - if current_user
             %li.nav-item
               = link_to "ログアウト", destroy_user_session_url, class: "nav-link", method: :delete
