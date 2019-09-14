@@ -4,8 +4,6 @@ RSpec.describe 'admin/products', type: :system do
   let(:product) { create(:product) }
   
   context "管理者でログインしていないとき" do
-    let(:admin) { create(:admin) }
-
     example "表示できないこと" do
       visit admin_product_path(product)
       expect(page).not_to have_current_path(admin_product_path(product))
