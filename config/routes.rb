@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'index', to: "home#index"
     resources :products
+    resources :users, only: %i(index edit update destroy)
   end
 end
