@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
+  get 'admin', to: redirect('admin/index')
   namespace :admin do
+    get 'index', to: "home#index"
     resources :products
   end
 end

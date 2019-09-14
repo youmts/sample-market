@@ -74,6 +74,9 @@ RSpec.configure do |config|
   # factory_bot
   config.include FactoryBot::Syntax::Methods
 
+  # Signin helpers
+  config.include Devise::Test::IntegrationHelpers, type: :system
+
   # capybara
   config.before(:all, type: :system) do
     Capybara.server = :puma, { Silent: true }
