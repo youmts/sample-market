@@ -23,6 +23,13 @@ RSpec.describe "Shop", type: :system do
 
   context "ログインしていないとき" do
     include_examples :public_shop
+
+    example "カートに追加できないこと" do
+      product
+      visit shop_url(product)
+
+      expect(page).not_to have_content "カートに入れる"
+    end
   end
 
   context "ログインしているとき" do
@@ -33,5 +40,16 @@ RSpec.describe "Shop", type: :system do
     end
 
     include_examples :public_shop
+
+    example "カートに追加できること" do
+      product
+      visit shop_url(product)
+
+      click_button "カートに入れる"
+
+      visit cart_index_path
+
+      expect(page).to have_content(product.name)
+    end
   end
 end
