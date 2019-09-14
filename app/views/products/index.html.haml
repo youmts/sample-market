@@ -4,7 +4,7 @@
       .shadow-sm.rounded.bg-white
         .row
           - if product.image_url.presence
-            = link_to image_tag(product.image_url(:thumb)), shop_url(product), class: "mx-auto"
+            = link_to image_tag(product.image_url(:thumb)), product, class: "mx-auto"
           - else
             %p イメージなし
         .row

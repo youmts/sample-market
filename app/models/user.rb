@@ -4,15 +4,15 @@ class User < ApplicationRecord
 
   has_many :cart_items, dependent: :destroy
 
-  def add_cart!(product_id)
-    item = cart_items.find_or_initialize_by(product_id: product_id)
+  def add_cart!(product)
+    item = cart_items.find_or_initialize_by(product_id: product.id)
     item.quantity ||= 0
     item.quantity += 1
     item.save!
   end
 
-  def remove_cart!(product_id)
-    item = cart_items.find_by(product_id: product_id)
+  def remove_cart!(product)
+    item = cart_items.find_by(product_id: product.id)
     item.quantity -= 1
 
     if item.quantity == 0

@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  root to: "shop#index"
-  resources :shop, only: %i(show)
-  resources :cart, only: %i(index)
-  resources :cart_items, only: [] do
-    collection do
-      post :add
-      post :remove
+  root to: "products#index"
+
+  resources :products, only: %i(show) do
+    member do
+      post :add_cart
+      post :remove_cart
     end
   end
+  resources :cart, only: %i(index)
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
