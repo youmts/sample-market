@@ -1,0 +1,17 @@
+%h1 商品詳細
+
+%h2= @product.name
+%br
+= image_tag @product.image_url
+%br
+= @product.description
+%br
+= @product.price
+%br
+= hide_information(@product)
+
+%br
+
+= link_to '一覧', admin_products_path
+\|
+= link_to '変更', edit_admin_product_path(@product)
