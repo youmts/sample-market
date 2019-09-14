@@ -5,10 +5,7 @@
     = f.error_notification
 
   = f.input :email
-  = f.input :name
-  = f.input :postal_code
-  = f.input :address
-  = f.input :phone_number
+  = render 'users/shared/form_address', form: f
   = f.button :submit, class: "btn btn-primary"
 
 .mt-2

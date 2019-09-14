@@ -6,6 +6,9 @@
       required: true,                       |
       autofocus: true ,                     |
       input_html: { autocomplete: "email" }
+
+    = render 'users/shared/form_address', form: f
+
     = f.input :password,                                                                                               |
       required: true,                                                                                                  |
       hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length), |
@@ -14,5 +17,5 @@
       required: true,                              |
       input_html: { autocomplete: "new-password" }
   .form-actions
-    = f.button :submit, t(".sign_up")
+    = f.button :submit, t(".sign_up"), class: "btn btn-primary"
 = render "users/shared/links"

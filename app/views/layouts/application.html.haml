@@ -19,10 +19,13 @@
         %span.navbar-toggler-icon
       #navbarNav.collapse.navbar-collapse
         %ul.navbar-nav
-          %li.nav-item
-            - if current_user
+          - if current_user
+            %li.nav-item
               = link_to "ログアウト", destroy_user_session_url, class: "nav-link", method: :delete
-            - else
+            %li.nav-item
+              = link_to "プロフィール変更", edit_user_registration_url, class: "nav-link"
+          - else
+            %li.nav-item
               = link_to "ログイン", new_user_session_url, class: "nav-link"
 
     - if notice.presence

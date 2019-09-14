@@ -5,6 +5,9 @@
     = f.input :email, required: true, autofocus: true
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %p= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email)
+
+    = render 'users/shared/form_address', form: f
+
     = f.input :password,                                      |
       hint: t(".leave_blank_if_you_don_t_want_to_change_it"), |
       required: false,                                        |
@@ -17,7 +20,7 @@
       required: true,                                                    |
       input_html: { autocomplete: "current-password" }
   .form-actions
-    = f.button :submit, t(".update")
+    = f.button :submit, t(".update"), class: "btn btn-primary"
 %h3= t(".cancel_my_account")
 %p
   = t(".unhappy")
