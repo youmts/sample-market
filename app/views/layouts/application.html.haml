@@ -35,6 +35,9 @@
     - if notice.presence
       .alert.alert-info
         = notice
+    - if alert.presence
+      .alert.alert-warning
+        = alert
     - if flash[:error].presence
       .alert.alert-danger
         = flash[:error]
