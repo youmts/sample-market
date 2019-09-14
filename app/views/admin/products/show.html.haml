@@ -1,13 +1,13 @@
 %h1 商品詳細
 
 %h2= @product.name
-%br
-= image_tag @product.image_url
-%br
-= @product.description
-%br
-= @product.price
-%br
+- if @product.image_url.presence
+  = image_tag @product.image_url
+- else
+  %p イメージはありません
+
+%p= @product.description
+%p= @product.price
 = hide_information(@product)
 
 %br
