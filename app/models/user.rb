@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+  composed_of :delivery, mapping: [ %w(name name), %w(postal_code postal_code), %w(address address), %w(phone_number phone_number)]
+
+  has_many :cart_items, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :cart_items, dependent: :destroy
 
   def add_cart!(product)
     item = cart_items.find_or_initialize_by(product_id: product.id)
