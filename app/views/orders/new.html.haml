@@ -11,7 +11,9 @@
       = f.input :delivery_date, hint: '今日を起点に、3営業日（営業日: 月-金）から14営業日まで'
       = f.input :delivery_time
 
-      = f.button :submit, class: "btn btn-primary"
+      = f.button :submit, "購入を確定する", class: "btn btn-primary"
+
+  - @order.fill_billing_amount
 
   .col-md-6
     %table.table
@@ -19,6 +21,7 @@
         %tr
           %th 商品名
           %th 個数
+          %th 単価
           %th 金額
 
       %tbody
@@ -26,4 +29,18 @@
           %tr
             %td= item.product.name
             %td= item.quantity
-            %td= item.price * item.quantity
+            %td= item.price
+            %td{align:"right"}= item.amount
+
+        %tr
+          %td{colspan: 3} 送料
+          %td{align:"right"}=@order.postage
+        %tr
+          %td{colspan: 3} 代引き手数料
+          %td{align:"right"}=@order.cod_charge
+        %tr
+          %td{colspan: 3} 税
+          %td{align:"right"}=@order.tax
+        %tr.font-weight-bold
+          %td{colspan: 3} 総金額
+          %td{align:"right"}= @order.total_amount

@@ -21,7 +21,7 @@ RSpec.describe 'Orders', type: :system do
     fill_in "電話番号", with: "1234567"
 
     expect {
-      click_button "登録する"
+      click_button "購入を確定する"
     }.to change(Order, :count).by(1)
 
     expect(page).to have_current_path(root_path)
