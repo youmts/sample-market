@@ -23,3 +23,5 @@
           .row
             = button_to "+", add_cart_product_path(product), class: "btn btn-primary"
             = button_to "-", remove_cart_product_path(product), class: "btn btn-primary ml-1"
+
+= link_to "購入する", new_order_path, class: "btn btn-primary"

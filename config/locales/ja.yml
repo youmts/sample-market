@@ -8,12 +8,33 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       user: ユーザー
+      order: 注文
     attributes:
       user:
         name: 名前
         postal_code: 郵便番号
         address: 住所
         phone_number: 電話番号
+      order:
+        name: 名前
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+        delivery_date: 配送日
+        delivery_time: 配送時間帯
+        cod_charge: 代引き手数料
+        postage: 送料
+        tax: 税
+
+  enumerize:
+    order:
+      delivery_time:
+        "8_12": "8時-12時"
+        "12_14": "12時-14時"
+        "14_16": "14時-16時"
+        "16_18": "16時-18時"
+        "18_20": "18時-20時"
+        "20_21": "20時-21時"
 
   date:
     abbr_day_names:

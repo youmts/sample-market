@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :cart, only: %i(index)
+  resources :orders, only: %i(index show new create)
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',

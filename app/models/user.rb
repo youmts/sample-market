@@ -2,6 +2,7 @@ class User < ApplicationRecord
   composed_of :delivery, mapping: [ %w(name name), %w(postal_code postal_code), %w(address address), %w(phone_number phone_number)]
 
   has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :nullify
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

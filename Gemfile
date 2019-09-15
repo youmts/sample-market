@@ -19,6 +19,8 @@ gem 'bootstrap'
 gem 'devise' # for user/admin
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'enumerize'
+gem 'business_time'
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 

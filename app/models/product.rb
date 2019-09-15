@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
 
+  # TODO 存在していたら削除できないように
+  has_many :order_items
+
   validates :name, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 1 }
 

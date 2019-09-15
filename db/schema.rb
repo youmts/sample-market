@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_093214) do
+ActiveRecord::Schema.define(version: 2019_09_14_232409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,33 @@ ActiveRecord::Schema.define(version: 2019_09_14_093214) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_cart_items_on_product_id"
     t.index ["user_id"], name: "index_cart_items_on_user_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "product_id"
+    t.integer "quantity", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name", default: "", null: false
+    t.string "postal_code", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "phone_number", default: "", null: false
+    t.date "delivery_date", null: false
+    t.string "delivery_time", default: "", null: false
+    t.integer "cod_charge", default: 0, null: false
+    t.integer "postage", default: 0, null: false
+    t.integer "tax", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -66,4 +93,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_093214) do
 
   add_foreign_key "cart_items", "products"
   add_foreign_key "cart_items", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "users"
 end
