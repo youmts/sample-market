@@ -2,8 +2,7 @@ class Product < ApplicationRecord
   acts_as_list column: :row_order
   mount_uploader :image, ImageUploader
 
-  # TODO 存在していたら削除できないように
-  has_many :order_items
+  has_many :order_items # 存在していたら削除NG
 
   validates :name, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 1 }
