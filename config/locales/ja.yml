@@ -25,6 +25,12 @@ ja:
         cod_charge: 代引き手数料
         postage: 送料
         tax: 税
+      product:
+        name: 商品名
+        description: 説明文
+        price: 単価
+        image: 画像
+        hide: マーケットから非表示
 
   enumerize:
     order:
@@ -178,12 +184,12 @@ ja:
     currency:
       format:
         delimiter: ","
-        format: "%n%u"
+        format: "%u %n"
         precision: 0
         separator: "."
         significant: false
         strip_insignificant_zeros: false
-        unit: 円
+        unit: ¥
     format:
       delimiter: ","
       precision: 3

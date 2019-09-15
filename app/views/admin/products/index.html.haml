@@ -3,8 +3,8 @@
 %table.table
   %thead
     %tr
-      %th Name
-      %th Price
+      %th= Product.human_attribute_name(:name)
+      %th= Product.human_attribute_name(:price)
       %th
 
   %tbody
@@ -13,7 +13,7 @@
         %td
           = link_to product.name, [:admin, product]
         %td
-          = product.price
+          = number_to_currency product.price
         %td
           = link_to '変更', edit_admin_product_path(product), class: "btn btn-secondary"
           = link_to '削除', [:admin, product], method: :delete,

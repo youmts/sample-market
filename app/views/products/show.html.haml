@@ -13,8 +13,7 @@
     .shadow-sm.rounded.bg-white.p-2
       %p= @product.description
       %p
-        = @product.price
-        円
+        = number_to_currency @product.price
 
       - if current_user
         = button_to 'カートに入れる', add_cart_product_path(@product), |

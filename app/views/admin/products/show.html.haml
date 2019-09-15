@@ -7,7 +7,7 @@
   %p イメージはありません
 
 %p= @product.description
-%p= @product.price
+%p= number_to_currency @product.price
 = hide_information(@product)
 
 %br
