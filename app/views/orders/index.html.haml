@@ -1,0 +1,13 @@
+%table.table
+  %thead
+    %tr
+      %th 注文ID
+      %th 注文日
+      %th 金額
+
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= link_to order.id, order
+        %td= order.created_at.to_date
+        %td= number_to_currency order.total_amount

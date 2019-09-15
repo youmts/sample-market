@@ -1,0 +1,27 @@
+%table.table
+  %thead
+    %tr
+      %th 商品名
+      %th 個数
+      %th 単価
+      %th 金額
+
+  %tbody
+    - order.order_items.each do |item|
+      %tr
+        %td= item.product.name
+        %td= item.quantity
+        %td= number_to_currency item.price
+        %td{align:"right"}= number_to_currency item.amount
+    %tr
+      %td{colspan: 3} 送料
+      %td{align:"right"}= number_to_currency order.postage
+    %tr
+      %td{colspan: 3} 代引き手数料
+      %td{align:"right"}= number_to_currency order.cod_charge
+    %tr
+      %td{colspan: 3} 税
+      %td{align:"right"}= number_to_currency order.tax
+    %tr.font-weight-bold
+      %td{colspan: 3} 総金額
+      %td{align:"right"}= number_to_currency order.total_amount

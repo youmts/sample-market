@@ -33,5 +33,11 @@ RSpec.describe 'Orders', type: :system do
     # カートが空になること
     visit(cart_index_path)
     expect(page).to have_content("カートが空です")
+
+    # 購入履歴が参照できること
+    visit(orders_path)
+    click_link Order.last.id
+    expect(page).to have_current_path(order_path(Order.last))
+    expect(page).to have_content("new_address")
   end
 end

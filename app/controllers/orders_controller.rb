@@ -3,11 +3,11 @@ class OrdersController < ApplicationController
   before_action :cart_empty, only: %i(new create)
 
   def index
-    @orders = current_user.orders.order(create_at: :desc)
+    @orders = current_user.orders.order(created_at: :desc)
   end
 
   def show
-    @order = current_user.orders.find(params[id])
+    @order = current_user.orders.find(params[:id])
   end
 
   def new

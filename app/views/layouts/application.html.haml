@@ -25,6 +25,8 @@
             %li.nav-item
               = link_to "ショッピングカート", cart_index_path, class: "nav-link"
             %li.nav-item
+              = link_to "購入履歴", orders_path, class: "nav-link"
+            %li.nav-item
               = link_to "ログアウト", destroy_user_session_url, class: "nav-link", method: :delete
             %li.nav-item
               = link_to "プロフィール変更", edit_user_registration_url, class: "nav-link"
