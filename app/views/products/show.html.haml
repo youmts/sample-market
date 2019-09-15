@@ -13,7 +13,7 @@
 
   .col-md-6
     .shadow-sm.rounded.bg-white.p-2
-      %p= @product.description
+      %p= simple_format h(@product.description)
       %p
         = number_to_currency @product.price
 

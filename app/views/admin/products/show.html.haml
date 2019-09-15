@@ -8,7 +8,7 @@
 - else
   %p イメージはありません
 
-%p= @product.description
+%p= simple_format h(@product.description)
 %p= number_to_currency @product.price
 = hide_information(@product)
 
