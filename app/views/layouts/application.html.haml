@@ -5,7 +5,9 @@
     %meta{:charset => "utf-8"}
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
 
-    %title SakuraMarket
+    %title
+      = content_for?(:html_title) ? yield(:html_title) : ""
+      \- さくらマーケット
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
