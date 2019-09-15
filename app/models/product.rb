@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  acts_as_list column: :row_order
   mount_uploader :image, ImageUploader
 
   # TODO 存在していたら削除できないように
@@ -6,8 +7,6 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 1 }
-
-  before_save :default_row_order, if: -> () { @row_order.nil? }
 
   def hide
     self.hid_at.present?
@@ -23,10 +22,4 @@ class Product < ApplicationRecord
       self.hid_at = nil
     end
   end
-
-  private
-
-    def default_row_order
-      self.row_order = 0
-    end
 end

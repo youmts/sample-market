@@ -25,7 +25,14 @@ Rails.application.routes.draw do
   get 'admin', to: redirect('admin/index')
   namespace :admin do
     get 'index', to: "home#index"
-    resources :products
+    resources :products do
+      member do
+        post :order_up
+        post :order_top
+        post :order_down
+        post :order_bottom
+      end
+    end
     resources :users, only: %i(index edit update destroy)
   end
 end

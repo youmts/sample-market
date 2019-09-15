@@ -18,6 +18,10 @@
           = link_to '変更', edit_admin_product_path(product), class: "btn btn-secondary"
           = link_to '削除', [:admin, product], method: :delete,
             data: { confirm: "本当に削除しますか？" }, class: "btn btn-secondary"
+          = link_to '一つ上', order_up_admin_product_path(product), class: "btn btn-secondary", method: :post
+          = link_to '一つ下', order_down_admin_product_path(product), class: "btn btn-secondary", method: :post
+          = link_to '最も上', order_top_admin_product_path(product), class: "btn btn-secondary", method: :post
+          = link_to '最も下', order_bottom_admin_product_path(product), class: "btn btn-secondary", method: :post
 
 %br
 
