@@ -5,6 +5,7 @@
     %tr
       %th= Product.human_attribute_name(:name)
       %th= Product.human_attribute_name(:price)
+      %th 非表示
       %th
 
   %tbody
@@ -14,6 +15,10 @@
           = link_to product.name, [:admin, product]
         %td
           = number_to_currency product.price
+        %td
+          - if product.hid_at.presence
+            = time_ago_in_words product.hid_at
+            前
         %td
           = link_to '変更', edit_admin_product_path(product), class: "btn btn-secondary"
           = link_to '削除', [:admin, product], method: :delete,

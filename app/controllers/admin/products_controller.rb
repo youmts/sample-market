@@ -3,7 +3,7 @@ class Admin::ProductsController < ApplicationController
   before_action :set_product, only: %i(show edit update destroy order_up order_top order_down order_bottom)
 
   def index
-    @products = Product.order(row_order: :asc)
+    @products = Product.order(:row_order)
   end
 
   def show

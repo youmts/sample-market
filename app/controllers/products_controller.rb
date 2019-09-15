@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i(show add_cart remove_cart)
 
   def index
-    @products = Product.order(row_order: :asc)
+    @products = Product.where(hid_at: nil).order(row_order: :asc)
   end
 
   def show
