@@ -1,12 +1,14 @@
 class Order < ApplicationRecord
   extend Enumerize
 
-  composed_of :delivery, mapping: [ %w(name name), %w(postal_code postal_code), %w(address address), %w(phone_number phone_number)]
+  composed_of :delivery,
+    mapping: [ %w(name name), %w(postal_code postal_code), %w(address address), %w(phone_number phone_number)]
 
   belongs_to :user
   has_many :order_items, dependent: :destroy
 
-  enumerize :delivery_time, in: %w(8_12 12_14 14_16 16_18 18_20 20_21), default: "8_12"
+  enumerize :delivery_time,
+    in: %w(8_12 12_14 14_16 16_18 18_20 20_21), default: "8_12"
 
   validates :name, :postal_code, :address, :phone_number,
     :delivery_date, :delivery_time, presence: true
@@ -30,6 +32,7 @@ class Order < ApplicationRecord
 
   private
     def delivery_date_range
+      # 今日は第0営業日（休日なら次の営業日を第0営業日）
       start_date = 2.business_days.from_now.to_date
       end_date = 13.business_days.from_now.to_date
 
@@ -39,6 +42,7 @@ class Order < ApplicationRecord
     end
 
     def set_default
+      # 今日は第0営業日（休日なら次の営業日を第0営業日）
       self.delivery_date ||= 2.business_days.from_now.to_date
     end
 end
