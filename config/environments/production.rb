@@ -63,6 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "sakura-market_#{Rails.env}"
 
+  Rails.application.routes.default_url_options[:host] = 'sakura-market-youmts.herokuapp.com'
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
