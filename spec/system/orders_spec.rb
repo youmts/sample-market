@@ -31,7 +31,7 @@ RSpec.describe 'Orders', type: :system do
     expect(user.reload.address).to eq "new_address"
 
     # カートが空になること
-    # visit(cart_index_path)
-    # expect(page).to have_content("カートが空です")
+    visit(cart_index_path)
+    expect(page).to have_content("カートが空です")
   end
 end
