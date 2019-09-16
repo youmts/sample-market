@@ -10,6 +10,23 @@ Rails.application.routes.draw do
   resources :cart, only: %i(index)
   resources :orders, only: %i(index show new create)
 
+  get 'admin', to: redirect('admin/index')
+
+  namespace :admin do
+    get 'index', to: "home#index"
+
+    resources :products do
+      member do
+        post :order_up
+        post :order_top
+        post :order_down
+        post :order_bottom
+      end
+    end
+
+    resources :users, only: %i(index edit update destroy)
+  end
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
   }
@@ -19,18 +36,4 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations',
   }
-
-  get 'admin', to: redirect('admin/index')
-  namespace :admin do
-    get 'index', to: "home#index"
-    resources :products do
-      member do
-        post :order_up
-        post :order_top
-        post :order_down
-        post :order_bottom
-      end
-    end
-    resources :users, only: %i(index edit update destroy)
-  end
 end
