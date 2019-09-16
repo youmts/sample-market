@@ -12,6 +12,7 @@ class User < ApplicationRecord
     item.quantity ||= 0
     item.quantity += 1
     item.save!
+    item.quantity
   end
 
   def remove_cart!(product)
@@ -23,6 +24,7 @@ class User < ApplicationRecord
     else
       item.save!
     end
+    item.quantity
   end
 
   def cart_total_amount

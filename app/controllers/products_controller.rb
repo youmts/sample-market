@@ -10,15 +10,15 @@ class ProductsController < ApplicationController
   end
 
   def add_cart
-    current_user.add_cart!(@product)
+    num = current_user.add_cart!(@product)
 
-    redirect_back fallback_location: root_path, notice: "カートに追加しました"
+    redirect_back fallback_location: root_path, notice: "カートに追加しました（現在#{num}個）"
   end
 
   def remove_cart
-    current_user.remove_cart!(@product)
+    num = current_user.remove_cart!(@product)
 
-    redirect_back fallback_location: root_path, notice: "カートから削除しました"
+    redirect_back fallback_location: root_path, notice: "カートから削除しました（現在#{num}個）"
   end
 
   private
