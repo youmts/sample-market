@@ -22,12 +22,12 @@ class Order < ApplicationRecord
     order_items.sum { |item| item.amount } + postage + cod_charge + tax
   end
 
-  def build_items(user)
-    user.cart_items.each do |cart_item|
+  def build_items(src_items)
+    src_items.each do |item|
       order_items.build(
-        product: cart_item.product,
-        quantity: cart_item.quantity,
-        price: cart_item.product.price)
+        product: item.product,
+        quantity: item.quantity,
+        price: item.product.price)
     end
   end
 

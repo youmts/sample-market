@@ -13,12 +13,12 @@ class OrdersController < ApplicationController
   def new
     @order = current_user.orders.build
     @order.delivery = current_user.delivery
-    @order.build_items(current_user)
+    @order.build_items(current_user.cart_items)
   end
 
   def create
     @order = current_user.orders.build(order_params)
-    @order.build_items(current_user)
+    @order.build_items(current_user.cart_items)
 
     if @order.save
       @order.update_user_delivery!
