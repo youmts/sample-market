@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   validates :name, :postal_code, :address, :phone_number,
     :delivery_date, :delivery_time, presence: true
   validate :delivery_date_range
-  validate :any_order_items
+  validate :order_items_at_least_one
 
   after_initialize :set_default, if: :new_record?
   before_save :fill_billing_amount
@@ -63,7 +63,7 @@ class Order < ApplicationRecord
       end
     end
 
-    def any_order_items
+    def order_items_at_least_one
       if order_items.empty?
         errors[:base] << "購入する商品が空です"
       end
