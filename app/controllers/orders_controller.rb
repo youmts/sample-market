@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :cart_empty, only: %i(new create)
+  before_action :cart_at_least_one, only: %i(new create)
 
   def index
     @orders = current_user.orders.order(created_at: :desc)
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:name, :postal_code, :address, :phone_number, :delivery_date, :delivery_time, :save_delivery)
     end
 
-    def cart_empty
+    def cart_at_least_one
       if current_user.cart_items.empty?
         redirect_to root_path, alert: "商品をカートに追加してから購入してください"
       end
