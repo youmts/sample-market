@@ -7,7 +7,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   def add_cart!(product)
     item = cart_items.find_or_initialize_by(product_id: product.id)
     item.quantity ||= 0
