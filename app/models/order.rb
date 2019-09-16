@@ -8,14 +8,13 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
 
   enumerize :delivery_time,
-    in: %w(8_12 12_14 14_16 16_18 18_20 20_21), default: "8_12"
+    in: %w(8_12 12_14 14_16 16_18 18_20 20_21)
 
   validates :name, :postal_code, :address, :phone_number,
     :delivery_date, :delivery_time, presence: true
   validate :delivery_date_range
   validate :order_items_at_least_one
 
-  after_initialize :set_default, if: :new_record?
   before_save :fill_billing_amount
 
   def total_amount
@@ -70,11 +69,6 @@ class Order < ApplicationRecord
       if order_items.empty?
         errors[:base] << "購入する商品が空です"
       end
-    end
-
-    def set_default
-      # 今日は第0営業日（休日なら次の営業日を第0営業日）
-      self.delivery_date ||= 2.business_days.from_now.to_date
     end
 
     def calculate_cod_charge(amount)

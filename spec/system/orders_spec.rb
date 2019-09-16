@@ -19,6 +19,8 @@ RSpec.describe 'Orders', type: :system do
     fill_in "郵便番号", with: "123-4567"
     fill_in "住所", with: "new_address"
     fill_in "電話番号", with: "1234567"
+    select 2.business_days.from_now.to_date.to_s, from: "配送日"
+    select "8時-12時", from: "配送時間帯"
 
     expect {
       click_button "購入を確定する"

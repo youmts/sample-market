@@ -11,7 +11,7 @@
 
       = render 'users/shared/form_delivery', form: f
 
-      = f.input :delivery_date, hint: '今日を起点に、3営業日（営業日: 月-金）から14営業日まで'
+      = f.input :delivery_date, collection: Order.delivery_dates(Time.current.to_date)
       = f.input :delivery_time
 
       = f.button :submit, "購入を確定する", class: "btn btn-primary"
