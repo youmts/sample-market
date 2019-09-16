@@ -52,13 +52,16 @@ class Order < ApplicationRecord
     amount
   end
 
-  private
-    def delivery_date_range
-      # 今日は第0営業日（休日なら次の営業日を第0営業日）
-      start_date = 2.business_days.from_now.to_date
-      end_date = 13.business_days.from_now.to_date
+  DELIVERY_START_DAY = 2
+  DELIVERY_END_DAY = 13
+  def self.delivery_dates(start_date)
+    [*(DELIVERY_START_DAY..DELIVERY_END_DAY)].map { |x| x.business_days.after(start_date)}
+  end
 
-      if (start_date..end_date).exclude?(delivery_date)
+  private
+
+    def delivery_date_range
+      if Order.delivery_dates(Time.current.to_date).exclude?(delivery_date)
         errors.add(:delivery_date, "は期間内にしてください")
       end
     end

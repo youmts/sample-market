@@ -6,5 +6,10 @@ FactoryBot.define do
     phone_number { "MyString" }
 
     association :user
+
+    after(:build) do |order|
+      product = create(:product)
+      order.order_items.build(product: product, quantity: 1, price: product.price)
+    end
   end
 end

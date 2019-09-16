@@ -77,6 +77,9 @@ RSpec.configure do |config|
   # Signin helpers
   config.include Devise::Test::IntegrationHelpers, type: :system
 
+  # For time travel in spec
+  config.include ActiveSupport::Testing::TimeHelpers
+
   # capybara
   config.before(:all, type: :system) do
     Capybara.server = :puma, { Silent: true }
