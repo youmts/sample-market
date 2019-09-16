@@ -22,8 +22,10 @@ gem 'devise-i18n-views'
 gem 'enumerize'
 gem 'business_time'
 gem 'acts_as_list'
+gem 'fog' # for aws
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
