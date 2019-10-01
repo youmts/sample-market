@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   def add_cart!(product)
     item = cart_items.find_or_initialize_by(product_id: product.id)
-    item.quantity ||= 0
     item.quantity += 1
     item.save!
     item.quantity
