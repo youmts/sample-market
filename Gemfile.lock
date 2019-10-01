@@ -93,6 +93,10 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     dry-inflector (0.1.2)
     enumerize (2.3.1)
       activesupport (>= 3.2)
@@ -294,6 +298,7 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
+    hashie (3.6.0)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -338,11 +343,28 @@ GEM
     minitest (5.11.3)
     msgpack (1.3.1)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
+    oauth2 (1.4.1)
+      faraday (>= 0.8, < 0.16.0)
+      jwt (>= 1.0, < 3.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.9.0)
+      hashie (>= 3.4.6, < 3.7.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-google-oauth2 (0.8.0)
+      jwt (>= 2.0)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.6)
+    omniauth-oauth2 (1.6.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.9)
     optimist (3.0.0)
     orm_adapter (0.5.0)
     os (1.0.1)
@@ -520,6 +542,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  dotenv-rails
   enumerize
   factory_bot_rails
   fog
@@ -527,6 +550,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen
+  omniauth-google-oauth2
   pg
   puma
   rails (= 5.2.3)

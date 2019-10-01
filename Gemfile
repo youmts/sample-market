@@ -19,10 +19,12 @@ gem 'bootstrap'
 gem 'devise' # for user/admin
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'omniauth-google-oauth2'
 gem 'enumerize'
 gem 'business_time'
 gem 'acts_as_list'
 gem 'fog' # for aws
+gem 'dotenv-rails'
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 
