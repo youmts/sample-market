@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post :remove_cart
     end
   end
-  resources :cart, only: %i(index)
+  resource :cart, only: %i(show)
   resources :orders, only: %i(index show new create)
 
   get 'admin', to: redirect('admin/index')

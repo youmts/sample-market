@@ -10,7 +10,7 @@ RSpec.describe 'Orders', type: :system do
   end
 
   example "購入できること" do
-    visit(cart_index_path)
+    visit(cart_path)
     click_link "購入する"
 
     expect(page).to have_current_path(new_order_path)
@@ -33,7 +33,7 @@ RSpec.describe 'Orders', type: :system do
     expect(user.reload.address).to eq "new_address"
 
     # カートが空になること
-    visit(cart_index_path)
+    visit(cart_path)
     expect(page).to have_content("カートが空です")
 
     # 購入履歴が参照できること

@@ -47,7 +47,7 @@ RSpec.describe "Products", type: :system do
 
       click_button "カートに入れる"
 
-      visit cart_index_path
+      visit cart_path
 
       expect(page).to have_content(product.name)
     end
