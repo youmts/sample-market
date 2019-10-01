@@ -47,8 +47,7 @@ class Order < ApplicationRecord
     amount = order_items.sum { |item| item.amount}
     amount += (self.postage = total_quantity.fdiv(POSTAGE_UNIT_QTY).ceil * POSTAGE_PER_UNIT)
     amount += (self.cod_charge = calculate_cod_charge(amount))
-    amount += (self.tax = (amount * TAX_RATE).floor)
-    amount
+    self.tax = (amount * TAX_RATE).floor
   end
 
   DELIVERY_START_DAY = 2
