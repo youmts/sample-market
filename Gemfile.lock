@@ -338,6 +338,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
+    mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -427,7 +428,6 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     retriable (3.1.2)
-    rmagick (4.0.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -550,11 +550,11 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen
+  mini_magick
   omniauth-google-oauth2
   pg
   puma
   rails (= 5.2.3)
-  rmagick
   rspec-rails
   sass-rails
   selenium-webdriver

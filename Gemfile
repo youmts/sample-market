@@ -11,7 +11,7 @@ gem 'sass-rails' # Use SCSS for stylesheets
 gem 'uglifier' # Use Uglifier as compressor for JavaScript assets
 gem 'turbolinks' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'carrierwave', '~> 1' # 画像保存用
-gem 'rmagick' # 画像編集
+gem 'mini_magick' # 画像編集
 gem 'haml-rails'
 gem 'simple_form'
 gem 'jquery-rails'
