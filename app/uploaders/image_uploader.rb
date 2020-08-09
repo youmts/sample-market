@@ -1,11 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
-  end
+  storage :file # TODO: use fog(s3) in production
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
