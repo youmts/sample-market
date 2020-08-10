@@ -50,4 +50,8 @@ group :test do
   gem 'webdrivers' # for selenium_chrome_headless
 end
 
+group :production, :staging do
+  gem 'unicorn'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -42,4 +42,10 @@ bin/rails server
 none
 
 * Deployment instructions
-none
+in aws ec2
+```
+cd /var/www/rails/sample-market/
+bin/rake assets:precompile RAILS_ENV=production
+bundle exec unicorn_rails -c config/unicorn.conf.rb -D -E production
+sudo service nginx start
+```
