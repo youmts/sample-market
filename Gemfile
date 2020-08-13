@@ -48,6 +48,7 @@ group :test do
   gem 'capybara' # for system test
   gem 'selenium-webdriver' # for use selenium driver
   gem 'webdrivers' # for selenium_chrome_headless
+  gem 'rspec_junit_formatter'
 end
 
 group :production, :staging do
