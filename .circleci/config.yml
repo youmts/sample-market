@@ -58,7 +58,7 @@ jobs:
 
       - run:
           name: データベースのセットアップ
-          command: bundle exec rake db:create || bin/rails db:schema:load --trace
+          command: bin/rails db:schema:load --trace
       - run:
           name: RSpec の並列実行
           command: |
