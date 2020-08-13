@@ -51,7 +51,11 @@ none
 in aws ec2
 ```
 cd /var/www/rails/sample-market/
+
 bin/rake assets:precompile RAILS_ENV=production
+
+kill -QUIT `cat tmp/pids/unicorn.pid`
 bundle exec unicorn_rails -c config/unicorn.conf.rb -D -E production
+
 sudo service nginx start
 ```

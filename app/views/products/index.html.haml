@@ -1,6 +1,6 @@
 = content_for(:html_title) { '買い物' }
 
-.row.mt-4
+.row.mt-2
   - @products.each do |product|
     .col-md-4
       .shadow-sm.rounded.bg-white
@@ -10,7 +10,7 @@
               = link_to image_tag(product.image_url(:thumb), class: "product-image"), product
             - else
               %p イメージなし
-        .row.mt-2
+        .row.m-2
           .col.px-4
             %p
               = product.name
