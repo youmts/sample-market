@@ -3,7 +3,7 @@ jobs:
   build:
     parallelism: 3
     docker:
-      - image: circleci/ruby:2.6.3-jessie-node # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
+      - image: circleci/ruby:2.6.3 # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
         environment: # プライマリ コンテナの環境変数
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
