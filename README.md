@@ -6,12 +6,15 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+
 2.6.3
 
 * System dependencies
+
 need postgresql
 
 * Configuration
+
 none
 
 * Database creation
@@ -34,14 +37,17 @@ bin/rspec
 ```
 
 * How to run the server
+
 ```
 bin/rails server
 ```
 
 * Services (job queues, cache servers, search engines, etc.)
+
 none
 
 * Deployment instructions
+
 in aws ec2
 ```
 cd /var/www/rails/sample-market/
