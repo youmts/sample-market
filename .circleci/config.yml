@@ -20,7 +20,14 @@ jobs:
     steps: # 実行可能コマンドの集合
       - checkout # ソース コードを作業ディレクトリにチェックアウトする特別なステップ
 
-      # Bundler のバージョンを指定します
+      - run:
+          name: Bundler を 2 系に
+          command: |
+            sudo gem update --system
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            sudo rm /usr/local/bin/bundler
+            sudo gem install bundler
 
       - run:
           name: Bundler の指定
