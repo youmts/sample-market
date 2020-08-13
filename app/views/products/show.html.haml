@@ -1,17 +1,18 @@
 = content_for(:html_title) { '商品' }
 
 .row
-  %h2.title= @product.name
+  .col
+    %h2.title= @product.name
 
 .row
-  .col-md-6
+  .col-lg-6
     .shadow-sm.rounded.bg-white.p-2
       - if @product.image_url.presence
-        = image_tag @product.image_url
+        = image_tag @product.image_url, class: "product-image"
       - else
         %p イメージはありません
 
-  .col-md-6
+  .col-lg-6
     .shadow-sm.rounded.bg-white.p-2
       %p= simple_format h(@product.description)
       %p

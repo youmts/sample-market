@@ -1,14 +1,16 @@
 = content_for(:html_title) { '買い物' }
 
-.row
+.row.mt-4
   - @products.each do |product|
-    .col-md-4.p-2
+    .col-md-4
       .shadow-sm.rounded.bg-white
         .row
-          - if product.image_url.presence
-            = link_to image_tag(product.image_url(:thumb)), product, class: "mx-auto"
-          - else
-            %p イメージなし
-        .row
-          %p.mx-auto
-            = product.name
+          .col.px-4.pt-2
+            - if product.image_url.presence
+              = link_to image_tag(product.image_url(:thumb), class: "product-image"), product
+            - else
+              %p イメージなし
+        .row.mt-2
+          .col.px-4
+            %p
+              = product.name
