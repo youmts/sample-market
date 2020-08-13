@@ -48,6 +48,11 @@ group :test do
   gem 'capybara' # for system test
   gem 'selenium-webdriver' # for use selenium driver
   gem 'webdrivers' # for selenium_chrome_headless
+  gem 'rspec_junit_formatter'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
