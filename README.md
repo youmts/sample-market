@@ -28,7 +28,6 @@ bin/rails db:migrate
 ```
 bin/rails console
 Admin.create(email: 'admin@example.com', password: 'password')
-User.
 ```
 
 * How to run the test suite
