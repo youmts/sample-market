@@ -1,0 +1,23 @@
+= content_for(:html_title) { '購入' }
+
+%h1 購入
+
+.row
+  .col-md-6
+    %h2 配送先
+    = simple_form_for @order do |f|
+      - if f.error_notification.presence
+        = f.error_notification
+
+      = render 'users/shared/form_delivery', form: f
+
+      = f.input :delivery_date, collection: Order.delivery_dates(Time.current.to_date)
+      = f.input :delivery_time
+
+      = f.button :submit, "購入を確定する", class: "btn btn-primary"
+
+  - @order.fill_billing_amount
+
+  .col-md-6
+    %h2 商品
+    = render 'items_list', order: @order

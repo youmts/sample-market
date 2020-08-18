@@ -1,0 +1,20 @@
+%h1 ユーザ一覧
+
+%table.table
+  %thead
+    %tr
+      %th Email
+      %th Name
+      %th Post
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email
+        %td= user.name
+        %td= user.postal_code
+        %td
+          = link_to '変更', edit_admin_user_path(user), class: "btn btn-secondary"
+          = link_to '削除', [:admin, user], method: :delete,
+            data: { confirm: "本当に削除しますか？" }, class: "btn btn-secondary"

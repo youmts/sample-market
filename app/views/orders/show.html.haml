@@ -1,0 +1,30 @@
+= content_for(:html_title) { '購入履歴詳細' }
+
+%h1 購入履歴詳細
+
+.row
+  .col-md-6
+    %h2 配送先
+    %table.table
+      %tbody
+        %tr
+          %td= Order.human_attribute_name(:name)
+          %td= @order.name
+        %tr
+          %td= Order.human_attribute_name(:postal_code)
+          %td= @order.postal_code
+        %tr
+          %td= Order.human_attribute_name(:address)
+          %td= @order.address
+        %tr
+          %td= Order.human_attribute_name(:phone_number)
+          %td= @order.phone_number
+        %tr
+          %td= Order.human_attribute_name(:delivery_date)
+          %td= @order.delivery_date
+        %tr
+          %td= Order.human_attribute_name(:delivery_time)
+          %td= @order.delivery_time_text
+  .col-md-6
+    %h2 商品
+    = render 'items_list', order: @order

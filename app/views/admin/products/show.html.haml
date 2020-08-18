@@ -1,0 +1,18 @@
+= content_for(:html_title) { '商品詳細' }
+
+%h1 商品詳細
+
+%h2= @product.name
+- if @product.image_url.presence
+  = image_tag @product.image_url
+- else
+  %p イメージはありません
+
+%p= simple_format h(@product.description)
+%p= number_to_currency @product.price
+= hide_information(@product)
+
+%br
+
+= link_to '一覧', admin_products_path, class: "btn btn-secondary"
+= link_to '変更', edit_admin_product_path(@product), class: "btn btn-secondary"

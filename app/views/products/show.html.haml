@@ -1,0 +1,23 @@
+= content_for(:html_title) { '商品' }
+
+.row
+  .col
+    %h2.title= @product.name
+
+.row
+  .col-lg-6
+    .shadow-sm.rounded.bg-white.p-2
+      - if @product.image_url.presence
+        = image_tag @product.image_url, class: "product-image"
+      - else
+        %p イメージはありません
+
+  .col-lg-6
+    .shadow-sm.rounded.bg-white.p-2
+      %p= simple_format h(@product.description)
+      %p
+        = number_to_currency @product.price
+
+      - if current_user
+        = button_to 'カートに入れる', add_cart_product_path(@product), |
+          class: "btn btn-primary"

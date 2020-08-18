@@ -1,0 +1,7 @@
+= content_for(:html_title) { '商品追加' }
+
+%h1 商品を追加
+
+= render 'form'
+
+= link_to '戻る', admin_products_path, class: "btn btn-secondary mt-2"

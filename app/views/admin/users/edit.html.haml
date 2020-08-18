@@ -1,0 +1,12 @@
+%h1 ユーザ変更
+
+= simple_form_for [:admin, @user] do |f|
+  - if f.error_notification.presence
+    = f.error_notification
+
+  = f.input :email
+  = render 'users/shared/form_delivery', form: f
+  = f.button :submit, class: "btn btn-primary"
+
+.mt-2
+  = link_to '一覧に戻る', admin_users_path, class: "btn btn-secondary"

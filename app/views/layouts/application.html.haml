@@ -1,0 +1,49 @@
+!!!
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
+
+    %title
+      = content_for?(:html_title) ? yield(:html_title) : ""
+      \- さんぷるマーケット
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body.has-navbar-fixed-top
+    %nav.navbar.navbar-expand-md.navbar-dark.bg-green
+      .navbar-brand= link_to 'さんぷるマーケット', root_path, class: "text-reset text-decoration-none"
+
+      %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        %ul.navbar-nav
+          %li.nav-item
+            = link_to "お買い物", root_path, class: "nav-link"
+          - if current_user
+            %li.nav-item
+              = link_to "ショッピングカート", cart_path, class: "nav-link"
+            %li.nav-item
+              = link_to "購入履歴", orders_path, class: "nav-link"
+            %li.nav-item
+              = link_to "ログアウト", destroy_user_session_url, class: "nav-link", method: :delete
+            %li.nav-item
+              = link_to "プロフィール変更", edit_user_registration_url, class: "nav-link"
+          - else
+            %li.nav-item
+              = link_to "ログイン", new_user_session_url, class: "nav-link"
+
+    - if notice.presence
+      .alert.alert-info
+        = notice
+    - if alert.presence
+      .alert.alert-warning
+        = alert
+    - if flash[:error].presence
+      .alert.alert-danger
+        = flash[:error]
+
+    .container
+      = yield
